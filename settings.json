@@ -1,0 +1,13 @@
+[
+    {
+        "LIMITWALLETPRIVATEKEY": "Private key here",
+        "LIMITWALLETADDRESS": "wallet address here",
+        "PRIVATEKEY": "private key of trading account here",
+        "WALLETADDRESS": "wallet address of trading account here",
+        "USECUSTOMNODE": "false",
+        "CUSTOMNODE": "put your own node here if you want and make, USECUSTOMNODE = TRUE",
+        "EXCHANGE": "pancakeswap",
+        "DXSALE": "false",
+        "DXPRESALECONTRACT": "0x8B9dC7c9052FC7Ac7f0AB2a84aEc238D96Eb869F"
+    }
+]
