@@ -1,7 +1,3 @@
-![alt text](https://i.imgur.com/20cNUIG.png)
-
-
-
 ![alt text](https://gblobscdn.gitbook.com/assets%2F-MZTPzgUqGxiIf6m_uoa%2F-MdT8RECUAK42MnmqRTa%2F-MdT9crcWoeNiTkmhokB%2Fsniper-works.png)
 
 # Limit Sniper
