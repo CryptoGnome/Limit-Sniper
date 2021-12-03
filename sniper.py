@@ -498,7 +498,7 @@ def scan(tokens):
 
                                 else:
                                     nonce = client.eth.getTransactionCount(settings['WALLETADDRESS'])
-                                    buy(pending, token, nonce)
+                                    buy(pending, token, nonce, token['BUYAFTER_XXX_SECONDS'])
                                     logging.info("Buy Sent Stopping Bot")
                                     sys.exit("Buy Sent Stopping Bot")
 
@@ -554,7 +554,7 @@ def scan(tokens):
 
                             else:
                                 nonce = client.eth.getTransactionCount(settings['WALLETADDRESS'])
-                                buy(pending, token, nonce)
+                                buy(pending, token, nonce, token['BUYAFTER_XXX_SECONDS'])
                                 print("BUY SENT - CHECK TRANSACTION TO MAKE SURE IT WAS FOR THE CORRECT CONTRACT!!!!")
                                 sleep(5)
                                 #logging.info("Buy Sent Stopping Bot")
@@ -567,7 +567,14 @@ def scan(tokens):
                     pass
 
 
-def buy(pending, token, nonce):
+def buy(pending, token, nonce, waitseconds):
+
+    seconds = int(waitseconds)
+
+    if waitseconds != '0':
+        print("Bot will wait", waitseconds, " seconds before buy, as you entered in BUYAFTER_XXX_SECONDS parameter")
+        sleep(seconds)
+
     deadline = int(time() + + 240)
 
     if token['USECUSTOMBASEPAIR'].lower() == 'true':
