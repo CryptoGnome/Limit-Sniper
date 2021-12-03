@@ -92,10 +92,24 @@ with open(file_path) as json_file:
 if settings['EXCHANGE'].lower() == 'pancakeswap':
     if settings['USECUSTOMNODE'].lower() == 'true':
         my_provider = settings['CUSTOMNODE']
+        print(timestamp(), 'Using custom mode.')
     else:
         my_provider = "https://bsc-dataseed4.defibit.io"
 
-    client = Web3(Web3.HTTPProvider(my_provider))
+    if not my_provider:
+        print(timestamp(), 'Custom node empty. Exiting')
+        exit(1)
+
+    if my_provider[0].lower() == 'h':
+        print(timestamp(), 'Using HTTPProvider')
+        client = Web3(Web3.HTTPProvider(my_provider))
+    elif my_provider[0].lower() == 'w':
+        print(timestamp(), 'Using WebsocketProvider')
+        client = Web3(Web3.WebsocketProvider(my_provider))
+    else:
+        print(timestamp(), 'Using IPCProvider')
+        client = Web3(Web3.IPCProvider(my_provider))
+    
     print(timestamp(), "Binance Smart Chain Connected =", client.isConnected())
     print(timestamp(), "Loading Smart Contracts...")
 
@@ -112,6 +126,7 @@ if settings['EXCHANGE'].lower() == 'traderjoe':
 
     if settings['USECUSTOMNODE'].lower() == 'true':
         my_provider = settings['CUSTOMNODE']
+        print(timestamp(), 'Using custom mode.')
     else:
         my_provider = "https://api.avax.network/ext/bc/C/rpc"
 
@@ -133,10 +148,23 @@ if settings['EXCHANGE'].lower() == 'traderjoe':
 elif settings['EXCHANGE'].lower() == 'apeswap':
     if settings['USECUSTOMNODE'].lower() == 'true':
         my_provider = settings['CUSTOMNODE']
+        print(timestamp(), 'Using custom mode.')
     else:
         my_provider = "https://bsc-dataseed4.defibit.io"
+    
+    if not my_provider:
+        print(timestamp(), 'Custom node empty. Exiting')
+        exit(1)
 
-    client = Web3(Web3.HTTPProvider(my_provider))
+    if my_provider[0].lower() == 'h':
+        print(timestamp(), 'Using HTTPProvider')
+        client = Web3(Web3.HTTPProvider(my_provider))
+    elif my_provider[0].lower() == 'w':
+        print(timestamp(), 'Using WebsocketProvider')
+        client = Web3(Web3.WebsocketProvider(my_provider))
+    else:
+        print(timestamp(), 'Using IPCProvider')
+        client = Web3(Web3.IPCProvider(my_provider))
 
     print(timestamp(), "Binance Smart Chain Connected =", client.isConnected())
     print(timestamp(), "Loading ApeSwap Smart Contracts...")
@@ -155,10 +183,24 @@ elif settings['EXCHANGE'].lower() == 'apeswap':
 elif settings["EXCHANGE"].lower() == 'uniswap':
     if settings['USECUSTOMNODE'].lower() == 'true':
         my_provider = settings['CUSTOMNODE']
+        print(timestamp(), 'Using custom mode.')
     else:
         my_provider = "https://pedantic-montalcini:lair-essay-ranger-rigid-hardy-petted@nd-857-678-344.p2pify.com"
 
-    client = Web3(Web3.HTTPProvider(my_provider))
+    if not my_provider:
+        print(timestamp(), 'Custom node empty. Exiting')
+        exit(1)
+
+    if my_provider[0].lower() == 'h':
+        print(timestamp(), 'Using HTTPProvider')
+        client = Web3(Web3.HTTPProvider(my_provider))
+    elif my_provider[0].lower() == 'w':
+        print(timestamp(), 'Using WebsocketProvider')
+        client = Web3(Web3.WebsocketProvider(my_provider))
+    else:
+        print(timestamp(), 'Using IPCProvider')
+        client = Web3(Web3.IPCProvider(my_provider))
+    
     print(timestamp(), "Uniswap Chain Connected =", client.isConnected())
     print(timestamp(), "Loading Smart Contracts...")
     routerAddress = Web3.toChecksumAddress("0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D")
@@ -172,6 +214,7 @@ elif settings["EXCHANGE"].lower() == 'uniswap':
 elif settings["EXCHANGE"].lower() == 'kuswap':
     if settings['USECUSTOMNODE'].lower() == 'true':
         my_provider = settings['CUSTOMNODE']
+        print(timestamp(), 'Using custom mode.')
     else:
         my_provider = "https://rpc-mainnet.kcc.network"
 
@@ -206,6 +249,7 @@ elif settings["EXCHANGE"].lower() == 'koffeeswap':
 elif settings["EXCHANGE"].lower() == 'spookyswap':
     if settings['USECUSTOMNODE'].lower() == 'true':
         my_provider = settings['CUSTOMNODE']
+        print(timestamp(), 'Using custom mode.')
     else:
         my_provider = "https://rpcapi.fantom.network"
 
@@ -223,6 +267,7 @@ elif settings["EXCHANGE"].lower() == 'spookyswap':
 elif settings["EXCHANGE"].lower() == 'spiritswap':
     if settings['USECUSTOMNODE'].lower() == 'true':
         my_provider = settings['CUSTOMNODE']
+        print(timestamp(), 'Using custom mode.')
     else:
         my_provider = "https://rpcapi.fantom.network"
 
@@ -240,6 +285,7 @@ elif settings["EXCHANGE"].lower() == 'spiritswap':
 elif settings["EXCHANGE"].lower() == 'quickswap':
     if settings['USECUSTOMNODE'].lower() == 'true':
         my_provider = settings['CUSTOMNODE']
+        print(timestamp(), 'Using custom mode.')
     else:
         my_provider = "https://rpc-mainnet.matic.network"
 
@@ -257,6 +303,7 @@ elif settings["EXCHANGE"].lower() == 'quickswap':
 elif settings["EXCHANGE"].lower() == 'waultswap':
     if settings['USECUSTOMNODE'].lower() == 'true':
         my_provider = settings['CUSTOMNODE']
+        print(timestamp(), 'Using custom mode.')
     else:
         my_provider = "https://rpc-waultfinance-mainnet.maticvigil.com/v1/0bc1bb1691429f1eeee66b2a4b919c279d83d6b0"
 
@@ -274,6 +321,7 @@ elif settings["EXCHANGE"].lower() == 'waultswap':
 elif settings["EXCHANGE"].lower() == 'pangolin':
     if settings['USECUSTOMNODE'].lower() == 'true':
         my_provider = settings['CUSTOMNODE']
+        print(timestamp(), 'Using custom mode.')
     else:
         my_provider = "https://api.avax.network/ext/bc/C/rpc"
 
