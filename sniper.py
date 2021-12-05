@@ -336,6 +336,7 @@ def wait_for_tx(tx_hash):
     timeout = time() + 45
     while True:
         print(timestamp(), ".........waiting............")
+        sleep(1)
         try:
             txn_receipt = client.eth.getTransactionReceipt(tx_hash)
             return txn_receipt['status']
